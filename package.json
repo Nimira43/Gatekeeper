@@ -1,0 +1,17 @@
+{
+  "name": "gatekeeper",
+  "version": "1.0.0",
+  "description": "Authentication using TypeScript and Express",
+  "main": "index.js",
+  "scripts": {
+    "start:build": "tsc -w",
+    "start:run": "nodemon build/index.js",
+    "start": "concurrently npm:start:*"
+  },
+  "author": "NimiraTech",
+  "license": "MIT",
+  "dependencies": {
+    "concurrently": "^9.1.0",
+    "nodemon": "^3.1.7"
+  }
+}
