@@ -21,3 +21,7 @@ router.get('/login', (req, res) => {
     </form>
     `);
 });
+router.post('/login', (req, res) => {
+    const { email, password } = req.body;
+    res.send(email + password);
+});
