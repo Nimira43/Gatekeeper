@@ -1,2 +1,2 @@
 "use strict";
-console.log('Gatekeeper');
+Object.defineProperty(exports, "__esModule", { value: true });
