@@ -6,4 +6,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const app = (0, express_1.default)();
 app.get('/', (req, res) => {
+    res.send(`
+      <div>
+        <h1>Gatekeeper</h1>
+      </div>
+    `);
+});
+app.listen(3000, () => {
+    console.log('Listening on Port 3000');
 });
