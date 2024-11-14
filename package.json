@@ -11,7 +11,10 @@
   "author": "NimiraTech",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.20.3",
     "concurrently": "^9.1.0",
+    "cookie-session": "^2.1.0",
+    "express": "^4.21.1",
     "nodemon": "^3.1.7"
   }
 }
