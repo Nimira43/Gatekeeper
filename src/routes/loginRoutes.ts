@@ -28,8 +28,10 @@ router.get('/login', (req: Request, res: Response) => {
 
 router.post('/login', (req: RequestWithBody, res: Response) => {
   const { email, password } = req.body
+  
   if (email && password && email === 'nick@nimiratech.com' && password === 'password') {
-    
+    // mark user as logged in
+    // redirect to root route
   } else {
     res.send('Invalid email or password')
   }
