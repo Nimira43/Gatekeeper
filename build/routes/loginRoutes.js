@@ -23,10 +23,11 @@ router.get('/login', (req, res) => {
 });
 router.post('/login', (req, res) => {
     const { email, password } = req.body;
-    if (email) {
-        res.send(email.toUpperCase());
+    if (email && password && email === 'nick@nimiratech.com' && password === 'password') {
+        req.session = { loggedIn: true };
+        res.redirect('/');
     }
     else {
-        res.send('You must provide an email address');
+        res.send('Invalid email or password');
     }
 });
