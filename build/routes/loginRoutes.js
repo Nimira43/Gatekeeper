@@ -31,3 +31,14 @@ router.post('/login', (req, res) => {
         res.send('Invalid email or password');
     }
 });
+router.get('/', (req, res) => {
+    if (req.session && req.session.loggedIn) {
+        res.send(`
+      <div>
+        <div>Logged In</div>
+        <a href='./logout'>Logout</a>
+      </div>`);
+    }
+    else {
+    }
+});
