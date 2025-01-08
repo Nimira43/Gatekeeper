@@ -23,7 +23,7 @@ router.get('/login', (req, res) => {
 });
 router.post('/login', (req, res) => {
     const { email, password } = req.body;
-    if (email && password && email === 'nick@nimiratech.com' && password === 'password') {
+    if (email && password && email === 'user' && password === '1234') {
         req.session = { loggedIn: true };
         res.redirect('/');
     }
@@ -35,7 +35,6 @@ router.get('/', (req, res) => {
     if (req.session && req.session.loggedIn) {
         res.send(`
       <div>
-      
         <div>You are Logged In</div>
         <a href='./logout'>Logout</a>
       </div>`);
@@ -47,4 +46,8 @@ router.get('/', (req, res) => {
         <a href='./login'>Login</a>
       </div>`);
     }
+});
+router.get('/logout', (req, res) => {
+    req.session = undefined;
+    res.redirect('/');
 });
