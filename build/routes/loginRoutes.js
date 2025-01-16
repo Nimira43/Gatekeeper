@@ -8,7 +8,7 @@ function requireAuth(req, res, next) {
         return;
     }
     res.status(403);
-    res.send('Yous must be logged in');
+    res.send('You must be logged in');
 }
 const router = (0, express_1.Router)();
 exports.router = router;
@@ -58,4 +58,7 @@ router.get('/', (req, res) => {
 router.get('/logout', (req, res) => {
     req.session = undefined;
     res.redirect('/');
+});
+router.get('/protected', requireAuth, (req, res) => {
+    res.send('Top Secret');
 });
