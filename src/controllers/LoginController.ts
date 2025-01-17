@@ -1,6 +1,8 @@
 import { Router, Request, Response, NextFunction } from 'express'
 
+@Controller('/')
 class LoginController {
+  @get('/login')
   getLogin(req: Request, res: Response): void {
     res.send(
       `
