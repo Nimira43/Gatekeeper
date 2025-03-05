@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.router = void 0;
-const express_1 = require("express");
+var express_1 = require("express");
 function requireAuth(req, res, next) {
     if (req.session && req.session.loggedIn) {
         next();
@@ -10,10 +10,10 @@ function requireAuth(req, res, next) {
     res.status(403);
     res.send('You must be logged in');
 }
-const router = (0, express_1.Router)();
+var router = (0, express_1.Router)();
 exports.router = router;
-router.post('/login', (req, res) => {
-    const { email, password } = req.body;
+router.post('/login', function (req, res) {
+    var _a = req.body, email = _a.email, password = _a.password;
     if (email && password && email === 'user' && password === '1234') {
         req.session = { loggedIn: true };
         res.redirect('/');
@@ -22,26 +22,18 @@ router.post('/login', (req, res) => {
         res.send('Invalid email or password');
     }
 });
-router.get('/', (req, res) => {
+router.get('/', function (req, res) {
     if (req.session && req.session.loggedIn) {
-        res.send(`
-      <div>
-        <div>You are Logged In</div>
-        <a href='./logout'>Logout</a>
-      </div>`);
+        res.send("\n      <div>\n        <div>You are Logged In</div>\n        <a href='./logout'>Logout</a>\n      </div>");
     }
     else {
-        res.send(`
-      <div>
-        <div>Sign In?</div>
-        <a href='./login'>Login</a>
-      </div>`);
+        res.send("\n      <div>\n        <div>Sign In?</div>\n        <a href='./login'>Login</a>\n      </div>");
     }
 });
-router.get('/logout', (req, res) => {
+router.get('/logout', function (req, res) {
     req.session = undefined;
     res.redirect('/');
 });
-router.get('/protected', requireAuth, (req, res) => {
+router.get('/protected', requireAuth, function (req, res) {
     res.send('Top Secret');
 });

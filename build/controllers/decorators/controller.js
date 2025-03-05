@@ -2,15 +2,17 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.controller = controller;
 require("reflect-metadata");
-const AppRouter_1 = require("../../AppRouter");
+var AppRouter_1 = require("../../AppRouter");
 function controller(routePrefix) {
     return function (target) {
-        const router = AppRouter_1.AppRouter.getInstance();
-        for (let key in target.prototype) {
-            const routeHandler = target.prototype[key];
-            const path = Reflect.getMetadata('path', target.prototype, key);
+        var router = AppRouter_1.AppRouter.getInstance();
+        for (var key in target.prototype) {
+            var routeHandler = target.prototype[key];
+            var path = Reflect.getMetadata('path', target.prototype, key);
+            console.log("Inspecting route: ".concat(key, ", path: ").concat(path));
             if (path) {
-                router.get(`${routePrefix}${path}`, routeHandler);
+                console.log("Registering route: ".concat(routePrefix).concat(path));
+                router.get("".concat(routePrefix).concat(path), routeHandler);
             }
         }
     };

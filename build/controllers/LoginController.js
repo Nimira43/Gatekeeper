@@ -9,32 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const decorators_1 = require("./decorators");
-let LoginController = class LoginController {
-    getLogin(req, res) {
-        res.send(`
-      <form method='POST'>
-        <h1>Gatekeeper</h1>
-        <h3>Login to Account</h3>
-        <div>
-          <label>Email</label>
-          <input name='email' />
-        </div>
-        <div>
-          <label>Password</label>
-          <input name='password' type='password' />
-        </div>
-        <button>Submit</button>
-      </form>
-      `);
+var decorators_1 = require("./decorators");
+var LoginController = /** @class */ (function () {
+    function LoginController() {
     }
-};
-__decorate([
-    (0, decorators_1.get)('/login'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object, Object]),
-    __metadata("design:returntype", void 0)
-], LoginController.prototype, "getLogin", null);
-LoginController = __decorate([
-    (0, decorators_1.controller)('/auth')
-], LoginController);
+    LoginController.prototype.getLogin = function (req, res) {
+        res.send("\n      <form method='POST'>\n        <h1>Gatekeeper</h1>\n        <h3>Login to Account</h3>\n        <div>\n          <label>Email</label>\n          <input name='email' />\n        </div>\n        <div>\n          <label>Password</label>\n          <input name='password' type='password' />\n        </div>\n        <button>Submit</button>\n      </form>\n      ");
+    };
+    __decorate([
+        (0, decorators_1.get)('/login'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object, Object]),
+        __metadata("design:returntype", void 0)
+    ], LoginController.prototype, "getLogin", null);
+    LoginController = __decorate([
+        (0, decorators_1.controller)('/auth')
+    ], LoginController);
+    return LoginController;
+}());
