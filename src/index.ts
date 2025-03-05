@@ -5,7 +5,6 @@ import cookieSession from 'cookie-session'
 import { router as controllerRouter } from './controllers/decorators/controller'
 import './controllers/LoginController'
 
-
 const app = express()
 
 app.use(bodyParser.urlencoded({ extended: true}))
