@@ -11,7 +11,7 @@ export function controller(routePrefix : string) {
       const method = Reflect.getMetadata('method', target.prototype, key)
       
       if (path) {
-        router.get(`${routePrefix}${path}`, routeHandler)
+        router[method](`${routePrefix}${path}`, routeHandler)
       }
     }
   }

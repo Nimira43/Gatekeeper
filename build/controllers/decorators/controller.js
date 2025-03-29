@@ -11,7 +11,7 @@ function controller(routePrefix) {
             var path = Reflect.getMetadata('path', target.prototype, key);
             var method = Reflect.getMetadata('method', target.prototype, key);
             if (path) {
-                router.get("".concat(routePrefix).concat(path), routeHandler);
+                router[method]("".concat(routePrefix).concat(path), routeHandler);
             }
         }
     };
