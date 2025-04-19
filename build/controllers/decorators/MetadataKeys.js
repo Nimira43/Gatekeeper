@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Metadatakeys = void 0;
-var Metadatakeys;
-(function (Metadatakeys) {
-    Metadatakeys["method"] = "method";
-    Metadatakeys["path"] = "path";
-})(Metadatakeys || (exports.Metadatakeys = Metadatakeys = {}));
+exports.MetadataKeys = void 0;
+var MetadataKeys;
+(function (MetadataKeys) {
+    MetadataKeys["method"] = "method";
+    MetadataKeys["path"] = "path";
+})(MetadataKeys || (exports.MetadataKeys = MetadataKeys = {}));
