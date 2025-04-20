@@ -26,7 +26,7 @@ export function controller(routePrefix : string) {
       ) || []
       
       if (path) {
-        router[method](`${routePrefix}${path}`, routeHandler)
+        router[method](`${routePrefix}${path}`, ...middlewares, routeHandler)
       }
     }
   }
