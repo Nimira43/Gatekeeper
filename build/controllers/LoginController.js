@@ -22,6 +22,7 @@ var LoginController = /** @class */ (function () {
     };
     __decorate([
         (0, decorators_1.get)('/login'),
+        (0, decorators_1.use)(logger),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object, Object]),
         __metadata("design:returntype", void 0)
