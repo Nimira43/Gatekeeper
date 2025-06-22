@@ -21,11 +21,9 @@ function bodyValidators(keys: string): RequestHandler {
         return
       }
     }
-
     next()
   }
 }
-
 
 export function controller(routePrefix : string) {
   return function(target: Function) {
@@ -48,6 +46,12 @@ export function controller(routePrefix : string) {
         target.prototype,
         key
       ) || []
+
+      const requiredBodyProps = Reflect.getMetadata(
+        MetadataKeys.validator, 
+        target.prototype,
+        key
+      )
       
       if (path) {
         router[method](
