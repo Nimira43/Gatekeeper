@@ -21,6 +21,8 @@ function bodyValidators(keys: string): RequestHandler {
         return
       }
     }
+
+    next()
   }
 }
 

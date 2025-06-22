@@ -26,6 +26,7 @@ function bodyValidators(keys) {
                 return;
             }
         }
+        next();
     };
 }
 function controller(routePrefix) {
