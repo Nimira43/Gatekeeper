@@ -10,6 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var decorators_1 = require("./decorators");
+function requireAuth(req, res, next) {
+    if (req.session && req.session.loggedIn) {
+        next();
+        return;
+    }
+    res.status(403);
+    res.send('You must be logged in');
+}
 var RootController = /** @class */ (function () {
     function RootController() {
     }
@@ -21,18 +29,23 @@ var RootController = /** @class */ (function () {
             res.send("\n        <div>\n          <div>Sign In?</div>\n          <a href='/auth/login'>Login</a>\n        </div>");
         }
     };
-    RootController.prototype.get = function (, requireAuth) { };
+    RootController.prototype.getProtected = function (req, res) {
+        res.send('Top Secret');
+    };
     __decorate([
         (0, decorators_1.get)('/'),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object, Object]),
         __metadata("design:returntype", void 0)
     ], RootController.prototype, "getRoot", null);
+    __decorate([
+        (0, decorators_1.get)('/protected'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object, Object]),
+        __metadata("design:returntype", void 0)
+    ], RootController.prototype, "getProtected", null);
     RootController = __decorate([
         (0, decorators_1.controller)('')
     ], RootController);
     return RootController;
 }());
-(function (req, res) {
-    res.send('Top Secret');
-});

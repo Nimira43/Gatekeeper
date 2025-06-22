@@ -1,6 +1,15 @@
 import { Request, Response } from 'express'
 import { get, controller } from './decorators'
 
+function requireAuth(req: Request, res: Response, next: NextFunction): void {
+  if (req.session && req.session.loggedIn) {
+    next()
+    return
+  }
+  res.status(403)
+  res.send('You must be logged in')
+}
+
 @controller('')
 class RootController {
   @get('/')
@@ -22,7 +31,8 @@ class RootController {
     }
   }
 
-  router.get('/protected', requireAuth, (req: Request, res: Response) => {
-  res.send('Top Secret')
-})
+  @get('/protected')
+  getProtected(req: Request, res: Response) {
+    res.send('Top Secret')
+  }
 }
