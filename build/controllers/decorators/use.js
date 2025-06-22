@@ -18,3 +18,22 @@ function use(middleware) {
         Reflect.defineMetadata(MetadataKeys_1.MetadataKeys.middleware, __spreadArray(__spreadArray([], middlewares, true), [middleware], false), target, key);
     };
 }
+// export function use(middleware: RequestHandler): MethodDecorator  {
+//   return function (
+//     target: any, 
+//     key: string | symbol, 
+//     desc: PropertyDecorator
+//   ) {
+//     const middlewares = Reflect.getMetadata(
+//       MetadataKeys.middleware,
+//       target,
+//       key
+//     ) || []
+//     Reflect.defineMetadata(
+//       MetadataKeys.middleware,
+//       [...middlewares, middleware],
+//       target,
+//       key
+//     )
+//   }
+// }
