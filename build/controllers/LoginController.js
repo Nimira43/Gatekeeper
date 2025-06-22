@@ -18,7 +18,7 @@ var LoginController = /** @class */ (function () {
     };
     LoginController.prototype.postLogin = function (req, res) {
         var _a = req.body, email = _a.email, password = _a.password;
-        if (email && password && email === 'user' && password === '1234') {
+        if (email === 'user' && password === '1234') {
             req.session = { loggedIn: true };
             res.redirect('/');
         }
@@ -32,6 +32,13 @@ var LoginController = /** @class */ (function () {
         __metadata("design:paramtypes", [Object, Object]),
         __metadata("design:returntype", void 0)
     ], LoginController.prototype, "getLogin", null);
+    __decorate([
+        (0, decorators_1.post)('/login'),
+        (0, decorators_1.bodyValidator)('email', 'password'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", [Object, Object]),
+        __metadata("design:returntype", void 0)
+    ], LoginController.prototype, "postLogin", null);
     LoginController = __decorate([
         (0, decorators_1.controller)('/auth')
     ], LoginController);
