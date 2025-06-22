@@ -26,7 +26,6 @@ var LoginController = /** @class */ (function () {
             res.send('Invalid email or password');
         }
     };
-    LoginController.prototype.getLogout = function () { };
     __decorate([
         (0, decorators_1.get)('/login'),
         __metadata("design:type", Function),
