@@ -51,12 +51,15 @@ export function controller(routePrefix : string) {
         MetadataKeys.validator, 
         target.prototype,
         key
-      )
+      ) || []
+
+      const validator = bodyValidators(requiredBodyProps)
       
       if (path) {
         router[method](
           `${routePrefix}${path}`,
           ...middlewares,
+          validator,
           routeHandler
         )
       }
