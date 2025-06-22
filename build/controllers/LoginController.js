@@ -26,6 +26,7 @@ var LoginController = /** @class */ (function () {
             res.send('Invalid email or password');
         }
     };
+    LoginController.prototype.get = function () { };
     __decorate([
         (0, decorators_1.get)('/login'),
         __metadata("design:type", Function),
@@ -44,3 +45,7 @@ var LoginController = /** @class */ (function () {
     ], LoginController);
     return LoginController;
 }());
+(function (req, res) {
+    req.session = undefined;
+    res.redirect('/');
+});

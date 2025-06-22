@@ -35,10 +35,7 @@ router.get('/', (req: Request, res: Response) => {
   }
 })
 
-router.get('/logout', (req: Request, res: Response) => {
-  req.session = undefined
-  res.redirect('/')
-})
+
 
 router.get('/protected', requireAuth, (req: Request, res: Response) => {
   res.send('Top Secret')
