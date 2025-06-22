@@ -27,3 +27,13 @@ var LoginController = /** @class */ (function () {
     ], LoginController);
     return LoginController;
 }());
+{
+    var _a = req.body, email = _a.email, password = _a.password;
+    if (email && password && email === 'user' && password === '1234') {
+        req.session = { loggedIn: true };
+        res.redirect('/');
+    }
+    else {
+        res.send('Invalid email or password');
+    }
+}

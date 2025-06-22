@@ -23,4 +23,15 @@ class LoginController {
       `    
     )
   }
+
+  postLogin(req: RequestWithBody, res: Response) => {
+    const { email, password } = req.body
+  
+    if (email && password && email === 'user' && password === '1234') {
+      req.session = { loggedIn: true }
+      res.redirect('/')
+    } else {
+      res.send('Invalid email or password')
+    }
+  })
 }
