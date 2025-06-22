@@ -1,5 +1,5 @@
-import { Request, Response } from 'express'
-import { get, controller } from './decorators'
+import { Request, Response, NextFunction } from 'express'
+import { get, controller, use } from './decorators'
 
 function requireAuth(req: Request, res: Response, next: NextFunction): void {
   if (req.session && req.session.loggedIn) {
@@ -32,6 +32,7 @@ class RootController {
   }
 
   @get('/protected')
+  @use(requireAuth)
   getProtected(req: Request, res: Response) {
     res.send('Top Secret')
   }

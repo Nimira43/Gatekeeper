@@ -40,6 +40,7 @@ var RootController = /** @class */ (function () {
     ], RootController.prototype, "getRoot", null);
     __decorate([
         (0, decorators_1.get)('/protected'),
+        (0, decorators_1.use)(requireAuth),
         __metadata("design:type", Function),
         __metadata("design:paramtypes", [Object, Object]),
         __metadata("design:returntype", void 0)
