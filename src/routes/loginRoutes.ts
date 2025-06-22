@@ -21,8 +21,6 @@ const router = Router()
 
 
 
-router.get('/protected', requireAuth, (req: Request, res: Response) => {
-  res.send('Top Secret')
-})
+
 
 export { router }

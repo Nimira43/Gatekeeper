@@ -21,6 +21,7 @@ var RootController = /** @class */ (function () {
             res.send("\n        <div>\n          <div>Sign In?</div>\n          <a href='/auth/login'>Login</a>\n        </div>");
         }
     };
+    RootController.prototype.get = function (, requireAuth) { };
     __decorate([
         (0, decorators_1.get)('/'),
         __metadata("design:type", Function),
@@ -32,3 +33,6 @@ var RootController = /** @class */ (function () {
     ], RootController);
     return RootController;
 }());
+(function (req, res) {
+    res.send('Top Secret');
+});

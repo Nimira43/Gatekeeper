@@ -21,4 +21,8 @@ class RootController {
       )
     }
   }
+
+  router.get('/protected', requireAuth, (req: Request, res: Response) => {
+  res.send('Top Secret')
+})
 }

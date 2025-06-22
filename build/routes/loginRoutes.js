@@ -12,6 +12,3 @@ function requireAuth(req, res, next) {
 }
 var router = (0, express_1.Router)();
 exports.router = router;
-router.get('/protected', requireAuth, function (req, res) {
-    res.send('Top Secret');
-});
